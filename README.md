@@ -2,14 +2,6 @@
 
 Este es un sistema web simple desarrollado con Flask (Python) y MySQL (a través de Docker) para la gestión y comercialización de lotes de ganado. Permite a los usuarios registrarse, iniciar sesión, ver los lotes disponibles y enviar solicitudes de contacto.
 
-## ⚙️ Requisitos Previos
-
-Asegúrate de tener instalado lo siguiente en tu sistema:
-
-1.  **Python 3.x**
-2.  **pip** (Administrador de paquetes de Python)
-3.  **Docker** y **Docker Compose** (Necesario para levantar la base de datos MySQL)
-
 ## 🛠️ Configuración e Instalación
 
 Sigue estos pasos para poner en marcha la aplicación localmente.
@@ -35,10 +27,10 @@ Utilizamos Docker Compose para levantar la base de datos MySQL.
 2.  **Crear Tablas Iniciales:**
     Una vez que el contenedor esté corriendo, debes ejecutar el script SQL para crear las tablas `usuarios` y `solicitudes_contacto`.
 
-    Conéctate a la base de datos MySQL (usando un cliente como MySQL Workbench, DBeaver, o la CLI de Docker) y ejecuta los comandos contenidos en el archivo `comandos_sql.sql`.
+    Conéctate a la base de datos MySQL y ejecuta los comandos contenidos en el archivo `comandos_sql.sql`.
 
     **Detalles de Conexión:**
-    *   Host: `localhost` (o `ganaderia` si te conectas desde otro contenedor)
+    *   Host: `localhost`
     *   Puerto: `3306`
     *   Usuario: `root`
     *   Contraseña: `1234`
@@ -51,8 +43,6 @@ Utilizamos Docker Compose para levantar la base de datos MySQL.
 
     ```bash
     pip install -r requeriments.txt
-    # Si no tienes requeriments.txt, usa:
-    # pip install Flask mysql-connector-python
     ```
 
 2.  **Verificar Conexión a la DB:**
