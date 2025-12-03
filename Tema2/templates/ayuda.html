@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayuda y Contacto</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/dashboard">Home</a></li>
+            <li><a href="/ganado">Lotes de Ganado</a></li>
+            <li><a href="/ayuda">Contacto y Ayuda</a></li>
+            <li><a href="/logout">Cerrar Sesión</a></li>
+        </ul>
+    </nav>
+    <header>
+        <h1>Centro de Ayuda y Contacto</h1>
+    </header>
+    <section id="help-content" class="container">
+        <h2>Preguntas Frecuentes</h2>
+        <div class="faq-item">
+            <h3>¿Cómo puedo consultar precios?</h3>
+            <p>Dado que los precios del ganado varían constantemente, le pedimos que complete nuestro formulario de contacto en la sección <a href="/ganado">Lotes de Ganado</a> para recibir una cotización actualizada.</p>
+        </div>
+        <div class="faq-item">
+            <h3>¿Qué tipo de ganado ofrecen?</h3>
+            <p>Ofrecemos lotes clasificados como Ternero/a, Novillito, Novillo, Vaquillona, Vaca y Toro, con enfoque en genética de alta calidad.</p>
+        </div>
+        <div class="faq-item">
+            <h3>¿Cuál es el proceso de compra?</h3>
+            <p>Una vez que solicite información, nuestro equipo comercial se pondrá en contacto para coordinar la visita a la estancia, la inspección del lote y los detalles logísticos de la transacción.</p>
+        </div>
+        
+        <h2>Contacto Directo</h2>
+        <p>Si tienes más preguntas, no dudes en contactarnos:</p>
+        <ul>
+            <li>Email: vakapipopo@ganaderia.com</li>
+            <li>Teléfono: +595 986 491 634</li>
+        </ul>
+        <p style="margin-top: 20px;">O <a href="/ganado#contact-form">Solicita que te llamemos</a>.</p>
+    </section>
+</body>
+</html>

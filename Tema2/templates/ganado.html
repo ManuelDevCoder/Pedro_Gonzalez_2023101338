@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lotes de Ganado - Vakapipopo Ganadería</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/dashboard">Home</a></li>
+            <li><a href="/ganado">Lotes de Ganado</a></li>
+            <li><a href="/ayuda">Contacto y Ayuda</a></li>
+            <li><a href="/logout">Cerrar Sesión</a></li>
+        </ul>
+    </nav>
+    <header>
+        <h1>Nuestros Lotes de Ganado</h1>
+        <p>Calidad y genética superior para su explotación.</p>
+    </header>
+
+    <section id="cattle-lots" class="container">
+        {% if message %}
+        <p class="message {{ message_type }}">{{ message }}</p>
+        {% endif %}
+        
+        <h2>Clasificaciones Disponibles</h2>
+        <div class="product-container">
+            {% for lot in cattle_lots %}
+            <div class="product">
+                <img src="{{ lot.image }}" alt="{{ lot.name }}">
+                <h2>{{ lot.name }}</h2>
+                <p class="details">{{ lot.details }}</p>
+                <p><strong>Cantidad en Lote:</strong> {{ lot.quantity }} cabezas</p>
+                <p class="price">Precio: {{ lot.price }}</p>
+                <a href="#contact-form" class="btn-primary" style="display: block; text-align: center; text-decoration: none;">Pedir Información</a>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section id="contact-form" class="container" style="background-color: #ffffff; border-top: 1px solid #eee;">
+        <h2>Solicitar Más Información</h2>
+        <div class="auth-container" style="margin: 20px auto; width: 100%; max-width: 500px; padding: 20px;">
+            <p>Complete el formulario y nos pondremos en contacto para discutir sus necesidades ganaderas.</p>
+            <form action="/ganado" method="POST">
+                <input type="text" id="full_name" name="full_name" placeholder="Nombre y Apellido" required>
+                <input type="email" id="email" name="email" placeholder="Correo Electrónico" required>
+                <input type="tel" id="phone" name="phone" placeholder="Celular (Ej: +595 9XX XXX XXX)" required>
+                
+                <label for="call_time" style="display: block; text-align: left; margin-top: 10px; color: #555;">Horario preferido para llamar:</label>
+                <select id="call_time" name="call_time">
+                    <option value="Mañana (8h - 12h)">Mañana (8h - 12h)</option>
+                    <option value="Tarde (12h - 17h)">Tarde (12h - 17h)</option>
+                    <option value="Noche (17h - 20h)">Noche (17h - 20h)</option>
+                    <option value="Cualquier momento">Cualquier momento</option>
+                </select>
+
+                <label for="ganado_type" style="display: block; text-align: left; margin-top: 10px; color: #555;">Tipo de ganado de interés:</label>
+                <select id="ganado_type" name="ganado_type">
+                    <option value="General">Interés General</option>
+                    <option value="Ternero/a">Ternero/a</option>
+                    <option value="Novillito">Novillito</option>
+                    <option value="Novillo">Novillo</option>
+                    <option value="Vaquillona">Vaquillona</option>
+                    <option value="Vaca">Vaca</option>
+                    <option value="Toro">Toro</option>
+                </select>
+
+                <input type="submit" value="Solicitar Contacto">
+            </form>
+        </div>
+    </section>
+</body>
+</html>

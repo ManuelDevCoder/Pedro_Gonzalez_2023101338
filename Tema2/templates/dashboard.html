@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Dashboard - Vakapipopo Ganadería</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/dashboard">Home</a></li>
+            <li><a href="/ganado">Lotes de Ganado</a></li>
+            <li><a href="/ayuda">Contacto y Ayuda</a></li>
+            <li><a href="/logout">Cerrar Sesión</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>Vakapipopo Ganadería</h1>
+        <p>Líderes en la comercialización de ganado de alta calidad.</p>
+    </header>
+
+    <section id="carousel">
+        <div class="carousel-container">
+            <div class="carousel-slide" id="slideshow">
+                <img src="{{ url_for('static', filename='img/producto1.jpg') }}" alt="Ganado 1">
+                <img src="{{ url_for('static', filename='img/producto2.jpg') }}" alt="Ganado 2" style="display: none;">
+                <img src="{{ url_for('static', filename='img/producto3.jpg') }}" alt="Ganado 3" style="display: none;">
+                <img src="{{ url_for('static', filename='img/producto4.jpg') }}" alt="Ganado 4" style="display: none;">
+                <img src="{{ url_for('static', filename='img/producto5.jpg') }}" alt="Ganado 5" style="display: none;">
+            </div>
+        </div>
+    </section>
+    
+
+    <section id="brands">
+        <h2>Nuestras Clasificaciones</h2>
+        <div class="brands-container">
+            <div class="brand">
+                <a href="/ganado">
+                    <img src="{{ url_for('static', filename='img/ternero.jpg') }}" alt="Ternero/a">
+                    <p>Ternero/a</p>
+                </a>
+            </div>
+            <div class="brand">
+                <a href="/ganado">
+                    <img src="{{ url_for('static', filename='img/novillo.jpg') }}" alt="Novillo">
+                    <p>Novillo</p>
+                </a>
+            </div>
+            <div class="brand">
+                <a href="/ganado">
+                    <img src="{{ url_for('static', filename='img/vaca.jpg') }}" alt="Vaca">
+                    <p>Vaca</p>
+                </a>
+            </div>
+        </div>
+        <a href="/ganado" class="btn-primary" style="display: inline-block; width: auto; margin-top: 30px;">Ver Todos los Lotes</a>
+    </section>
+
+    <script>
+        let slideIndex = 0;
+        const slides = document.getElementById('slideshow').getElementsByTagName('img');
+        const totalSlides = slides.length;
+
+        function showSlides() {
+            for (let i = 0; i < totalSlides; i++) {
+                slides[i].style.display = 'none';
+            }
+            
+            slideIndex++;
+            if (slideIndex > totalSlides) { slideIndex = 1 }
+            
+            slides[slideIndex - 1].style.display = 'block';
+            
+            setTimeout(showSlides, 3500);
+        }
+
+        if (totalSlides > 0) {
+            showSlides();
+        }
+    </script>
+</body>
+</html>
